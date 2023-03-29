@@ -11,11 +11,15 @@ Providing a software for sharing recipes that contain all of the essential infor
 Our target audience would include people who aren’t comfortable with technology, beginners at cooking, and need quick recipes. A lot of home cooks are looking for different types of delicious meals. 
 
 ### 5- Requirements
+Functional Requirements:
 - Tag system: tag recipes with certain allergies, type of recipe (breakfast/lunch), difficulty level 
 - Search bar 
+- Review system so users can see how helpful others have found it
+Non-Functional Requirements:
 - Good readability and aesthetics 
 - Separate pages for organization 
-- Review system so users can see how helpful others have found it
+- Compatible for all devices 
+- Secure from attacks like XSS and SQL Injection
 
 ### 6- Software Architecture
 
