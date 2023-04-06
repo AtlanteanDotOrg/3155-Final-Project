@@ -1,0 +1,206 @@
+
+:root{
+--green:#3B422D;
+}
+html{
+    background-color: white;
+    overflow-x: hidden;
+
+}
+h1{
+    font-family: 'Luckiest Guy', cursive;
+}
+h2{
+    font-family: 'Lora', serif;
+}
+h3,h4,p{
+    font-family: 'Mukta', sans-serif;
+
+}
+section{
+    padding-top: 2vh;
+}
+
+nav{
+    position:relative;
+    z-index: 99;
+    color:black !important;
+    padding: 2vh 3vw;
+    background-color: white !important;
+}
+nav a{
+    font-size: 20px;
+
+}
+nav a,form,button{
+    color:black; 
+}
+
+#hero{
+    color:var(--green);
+    background-color: antiquewhite;
+    height: 80vh;
+    width: 90vw;
+    margin:auto;
+    border-radius: 2%;
+    text-align:justify;
+}
+#hero h1{
+    opacity: 80%;
+    font-size: 115px;
+    padding:5%;
+}
+.herocont{
+    margin:auto; 
+    padding: 1%; 
+    padding-bottom: 20vh;
+
+}
+.herocont h1{
+    padding-top: 35% !important;
+    bottom:1vh; 
+
+}
+
+.title{
+    margin: -25vh -1vw;
+    white-space:pre;
+    white-space:break-spaces;
+    display: block !important;
+    width:30vw; 
+}
+#search{
+    right:0%;
+    padding-left: 50vw;
+}
+#hero h1{
+    padding:10%
+}
+#hero img{
+    position: relative;
+    z-index: 100;
+    background-size:contain;
+    width:135%;
+    left:0%;
+    margin:-18% -1%;
+}
+.btn{
+    border:1px solid black !important; 
+    outline: 5px;
+}
+#feature{
+    padding-top: 10vh;
+    width:80vw; 
+    margin:auto; 
+}
+#feature img{
+    object-fit: contain;
+    height: 25vh;
+    width: 100%;
+    margin:auto;
+    text-align: center;
+}
+#feature h3{
+
+    margin-top: 1vh;
+    text-align: center;
+}
+.item{
+    justify-content: center;
+    margin: 1vh 5vw;
+    border-radius: 2%;
+}
+.icon{
+    background-color: antiquewhite;
+    background-size: cover;
+    height: 25vh;
+    width: 100%;
+    margin: none;
+}
+.filter{
+    width:20vw; 
+    padding:5vw;
+}
+#post{
+    width:80vw; 
+    height:90vh; 
+    margin:auto; 
+    overflow: hidden;
+    padding-bottom: 60%;
+}
+#post button{
+    margin:auto;
+    width:10vw; 
+    font-size: 15px;
+}
+#post span{
+    background-color: antiquewhite;
+    border:none; 
+}
+#recipe,#name,#author{
+    margin-bottom: 5vh;
+
+}
+#post textarea{
+    border:solid black 2px !important;
+
+}
+#recipe{
+    height:40vh; 
+
+}
+
+.recipe{
+    margin:auto; 
+    padding:5%; 
+    background-color: antiquewhite;
+    border-radius: 2%;
+
+}
+.about{
+    width:80vw; 
+    background-color: antiquewhite;
+    margin: auto;
+    padding:5%;
+    font-size: 1.5vw;
+}
+.about h1{
+    font-size: 7vw;
+    text-align: left;
+    
+}
+.creators{
+    padding-top: 10vh;
+    width:90vw;
+    margin: auto;
+}
+.person{
+    height:30vh;
+    width: 50vw;
+}
+.person img{
+    background-size: contain;
+    width:80%;
+}
+.shrink{
+    width:40%;
+}
+.sampleicon{
+    background-size: contain;
+    width: 95%;
+    right:5%;
+    padding-bottom: -5em;
+}
+.samplecont{
+    width:80vw; 
+    margin:auto; 
+    padding-bottom: 10vh;
+    font-size: 2.5rem;
+}
+.samplerecipe{
+    width:80vw; 
+    margin:auto; 
+    background-color: antiquewhite;
+    padding: 5%;
+    margin-bottom: 30%;
+}
