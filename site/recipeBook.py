@@ -34,12 +34,12 @@ class Recipe():
 
 @app.route("/")
 def home():
-    return render_template("site/index.html")
+    return render_template("index.html")
 
 
 @app.route("/recipes")
 def about():
-    return render_template("site/about.html")
+    return render_template("about.html")
 
 
 @app.route('/addrecipe', methods=['GET', 'POST'])
@@ -55,7 +55,7 @@ def add_recipe():
 
             flash('Record was successfully added')
             return redirect(url_for('recipe'))
-    return render_template('site/post.html')
+    return render_template('post.html')
 
 
 if __name__ == '__main__':
