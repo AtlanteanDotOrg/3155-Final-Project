@@ -47,7 +47,7 @@
             </div>
         </section>
 
-        <section id="post">
+       <!-- <section id="post">
             <form method="POST" action="{{ request.path }}">
                 <div class="input-group" id="name">
                     <span class="input-group-text">Recipe Name:</span>
@@ -69,10 +69,23 @@
                     <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
                     <label class="form-check-label" for="inlineCheckbox2">Contains Gluten</label>
                 </div>
-                <button type="button" class="btn btn-outline-dark">Post</button>
+                <button type="submit" class="btn btn-outline-dark">Post</button>
             </form>
         </section>
-        
+        -->
+
+    <form method="POST" action="{{ request.path }}">
+        <label for="Recipe_Name">Recipe Name</label><br>
+        <input type="text" name="Recipe_Name" maxlength="45" placeholder="Name"/><br>
+        <label for="Recipe_Description">Recipe Description</label><br>
+        <input type="textarea" name="Recipe_Description" maxlength="500" placeholder="Description"/><br>
+        <label for="IsVegan">Is Vegan</label><br>
+        <input type="checkbox" name="IsVegan?" placeholder="Vegan?"/><br>
+        <label for="IsGlutenFree">Is Gluten Free</label><br>
+        <input type="checkbox" name="IsGlutenFree" placeholder="Gluten Free?"/><br>
+        <input type="submit" value="Post">
+    </form>
+
     </body>
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

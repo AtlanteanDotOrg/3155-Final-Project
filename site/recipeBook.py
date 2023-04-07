@@ -6,7 +6,7 @@ from flask_sqlalchemy import SQLAlchemy
 DB_HOST = "localhost"
 DB_NAME = "grandmas_recipe_book"
 DB_USERNAME = "root"
-DB_Password = "GamingGuy42"
+DB_Password = "Jafar9290!"
 
 database_file = f"mysql+pymysql://{DB_USERNAME}:{DB_Password}@{DB_HOST}:3306/{DB_NAME}"
 
