@@ -54,7 +54,7 @@ def add_recipe():
             db.session.commit()
 
             flash('Record was successfully added')
-            return redirect(url_for('recipe'))
+            return redirect(url_for('add_recipe'))
     return render_template('post.html')
 
 
