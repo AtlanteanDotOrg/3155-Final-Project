@@ -15,16 +15,16 @@
         <nav>
             <ul class="nav">
                 <li class="nav-item">
-                  <a class="nav-link" href="index.html">Home</a>
+                  <a class="nav-link" href="{{ url_for('home') }}">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="explore.html">Explore</a>
+                  <a class="nav-link" href="{{ url_for('explore_recipes') }}">Explore</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{{ url_for('add_recipe') }}">Post</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link"  href="about.html">About</a>
+                  <a class="nav-link"  href="{{ url_for('about') }}">About</a>
                 </li>
                 <li class="justify-content-end">
                     <form class="d-flex" role="search" id="search">

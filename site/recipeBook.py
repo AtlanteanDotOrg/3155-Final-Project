@@ -54,8 +54,13 @@ def add_recipe():
             db.session.commit()
 
             flash('Record was successfully added')
-            return redirect(url_for('add_recipe'))
+            return redirect(url_for('home'))
     return render_template('post.html')
+
+
+@app.route('/explorerecipes')
+def explore_recipes():
+    return render_template('explore.html')
 
 
 if __name__ == '__main__':
