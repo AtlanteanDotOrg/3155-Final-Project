@@ -47,17 +47,26 @@
             </div>
         </section>
 
-    <section class="form">
+    <section class="form solidGlass row">
         <form method="POST" action="{{ request.path }}" id="post">
-            <label for="Recipe_Name">Recipe Name</label><br>
-            <input type="text" name="Recipe_Name" maxlength="45" placeholder="Name"/><br>
-            <label for="Recipe_Description">Recipe Description</label><br>
-            <input type="textarea" name="Recipe_Description" maxlength="500" placeholder="Description"/><br>
-            <label for="IsVegan">Is Vegan</label><br>
-            <input type="checkbox" name="IsVegan?" placeholder="Vegan?"/><br>
-            <label for="IsGlutenFree">Is Gluten Free</label><br>
-            <input type="checkbox" name="IsGlutenFree" placeholder="Gluten Free?"/><br>
-            <input type="submit" value="Post">
+            <div class="row">
+                <label for="Recipe_Name" class="col">Recipe Name</label><br>
+                <input type="text" class="col" name="Recipe_Name" maxlength="45" placeholder="Name"/><br>
+            </div>
+            <div class="row">
+                <label for="Recipe_Description" class="col">Recipe Description</label><br>
+                <input type="textarea" class="col" name="Recipe_Description" maxlength="500" placeholder="Description"/><br>
+            </div>
+            <div class="row">
+                <label for="IsVegan" class="col">Vegan</label><br>
+                <input type="checkbox" class="col" name="IsVegan?" placeholder="Vegan?"/><br>
+            </div>
+            <div class="row">
+                <label for="IsGlutenFree" class="row">Gluten Free</label><br>
+                <input type="checkbox" class="row" name="IsGlutenFree" placeholder="Gluten Free?"/><br>
+            </div>
+        
+            <input type="submit" value="Post" id="submit">
         </form>
     </section>
 

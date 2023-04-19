@@ -54,7 +54,23 @@ nav a{
 nav a,form,button{
     color:black; 
 }
-
+.form{
+    width:70vw;
+    margin:auto; 
+    padding: 5%;
+}
+label{
+    font-size: 2rem;
+}
+input{
+    background-color:rgba(255, 255, 255, 0);
+    font-weight: bold;
+    width: 20vw;
+    border:3px solid black; 
+}
+input #submit{
+    width:10vw !important;
+}
 .container{
     min-width: 90vw;
     width:95vw;
