@@ -4,27 +4,27 @@
         <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet"/>		<link rel ="stylesheet" href="style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Goblin+One&family=Lora&family=Luckiest+Guy&family=Montserrat&family=Mukta:wght@300&display=swap" rel="stylesheet">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Montserrat&family=Mukta:wght@300&family=Rammetto+One&family=Rubik&display=swap" rel="stylesheet">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> \
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 		<title>Grandma's Recipe Book</title>
 	</head>
 
 	<body>
-        <nav>
+        <nav class="glass">
             <ul class="nav">
                 <li class="nav-item">
-                  <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+                  <a class="nav-link" href="index.html">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{{ url_for('explore_recipes') }}">Explore</a>
+                  <a class="nav-link" href="explore.html">Explore</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{{ url_for('add_recipe') }}">Post</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link"  href="{{ url_for('about') }}">About</a>
+                  <a class="nav-link"  href="about.html">About</a>
                 </li>
                 <li class="justify-content-end">
                     <form class="d-flex" role="search" id="search">
@@ -33,57 +33,34 @@
                     </form>
                 </li>
             </ul>
+              
         </nav>
 
-        <section class="herocont">
-            <div id="hero" class="row">
-                <div class="col-7 title">
-                    <h1>Post Your Own Recipe</h1>
+        <section>
+            <div id="hero" class="row glass heroshrink">
+                <div class="col title">
+                    <h1>Post A Recipe</h1>
                 </div>
                 <div class="col">
-                    <img src="../pics/cabbage.png"/>
+                    <img src="../pics/internet.png"/>
                 </div>
             </div>
         </section>
 
-       <!-- <section id="post">
-            <form method="POST" action="{{ request.path }}">
-                <div class="input-group" id="name">
-                    <span class="input-group-text">Recipe Name:</span>
-                    <input type="textarea" class="form-control" maxlength="45">
-                </div>
-                <div class="input-group" id="author">
-                    <span class="input-group-text">By (Name):</span>
-                    <input type="textarea" class="form-control">
-                </div>
-                <span class="input-group-text">Type your Recipe:</span>
-                <div class="input-group">
-                    <input type="textarea" class="form-control" id="recipe">
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                    <label class="form-check-label" for="inlineCheckbox1">Contains Dairy</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                    <label class="form-check-label" for="inlineCheckbox2">Contains Gluten</label>
-                </div>
-                <button type="submit" class="btn btn-outline-dark">Post</button>
-            </form>
-        </section>
-        -->
+    <section class="form">
+        <form method="POST" action="{{ request.path }}" id="post">
+            <label for="Recipe_Name">Recipe Name</label><br>
+            <input type="text" name="Recipe_Name" maxlength="45" placeholder="Name"/><br>
+            <label for="Recipe_Description">Recipe Description</label><br>
+            <input type="textarea" name="Recipe_Description" maxlength="500" placeholder="Description"/><br>
+            <label for="IsVegan">Is Vegan</label><br>
+            <input type="checkbox" name="IsVegan?" placeholder="Vegan?"/><br>
+            <label for="IsGlutenFree">Is Gluten Free</label><br>
+            <input type="checkbox" name="IsGlutenFree" placeholder="Gluten Free?"/><br>
+            <input type="submit" value="Post">
+        </form>
+    </section>
 
-    <form method="POST" action="{{ request.path }}">
-        <label for="Recipe_Name">Recipe Name</label><br>
-        <input type="text" name="Recipe_Name" maxlength="45" placeholder="Name"/><br>
-        <label for="Recipe_Description">Recipe Description</label><br>
-        <input type="textarea" name="Recipe_Description" maxlength="500" placeholder="Description"/><br>
-        <label for="IsVegan">Is Vegan</label><br>
-        <input type="checkbox" name="IsVegan?" placeholder="Vegan?"/><br>
-        <label for="IsGlutenFree">Is Gluten Free</label><br>
-        <input type="checkbox" name="IsGlutenFree" placeholder="Gluten Free?"/><br>
-        <input type="submit" value="Post">
-    </form>
 
     </body>
     <script src="script.js"></script>

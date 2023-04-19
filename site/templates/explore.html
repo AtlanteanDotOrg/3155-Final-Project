@@ -5,27 +5,27 @@
         <link rel ="stylesheet" href="style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Goblin+One&family=Lora&family=Luckiest+Guy&family=Montserrat&family=Mukta:wght@300&display=swap" rel="stylesheet">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Montserrat&family=Mukta:wght@300&family=Rammetto+One&family=Rubik&display=swap" rel="stylesheet">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> \
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 		<title>Grandma's Recipe Book</title>
 	</head>
 
 	<body>
-        <nav>
+        <nav class="glass">
             <ul class="nav">
                 <li class="nav-item">
-                  <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+                  <a class="nav-link" href="index.html">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{{ url_for('explore_recipes') }}">Explore</a>
+                  <a class="nav-link" href="explore.html">Explore</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{{ url_for('add_recipe') }}">Post</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link"  href="{{ url_for('about') }}">About</a>
+                  <a class="nav-link"  href="about.html">About</a>
                 </li>
                 <li class="justify-content-end">
                     <form class="d-flex" role="search" id="search">
@@ -48,31 +48,65 @@
                     <label class="form-check-label" for="flexSwitchCheckDefault">Gluten Free</label>
                   </div>
             </div>
-            <div id="feature" class="col-9">
-                <h2> Explore Recipes </h2>
+            <div class="col-9 explore solidGlass">
+                <div id="popup">
+                    <div class="popUpCont row">
+                        <img src="../pics/x.png" id="x">
+                        <div class="col-4"">
+                            <img src="../pics/arrow.png"  class="popupImage">
+                        </div>
+                        <div class="popUpText col-8">
+                        </div>
+                        
+                    </div>
+                </div>
                 <div class="row justify-content-evenly">
-                    <div class="col-sm-4 item">
+        
+                    <div class="col-sm-4 item ">
                         <div class="icon">
-                            <p><a href="sample.html"><img src="../pics/gyoza1.png"/></a>
+                            <p><img src="../pics/dish.png"/>
                                 <span class="top-0 start-100 translate-middle badge rounded-pill bg-success">
                                     Dairy Free
                                     <span class="visually-hidden">Dairy Free</span></p>
-                                
                         </div>
                        
                         <h3> Mom's pan fried Dumplings</h3>
                     </div>
                     <div class="col-sm-4 item">
                         <div class="icon">
-                            <img src="../pics/pizza.png"/>
+                            <img src="../pics/dish.png"/>
                         </div>
                         <h3> Homemade Pizza</h3>
     
                     </div>
                 </div>
+                <div class="row justify-content-evenly">
+                    <div class="col-sm-4 item ">
+                        <div class="icon">
+                            <p><img src="../pics/dish.png"/>
+                                <span class="top-0 start-100 translate-middle badge rounded-pill bg-success">
+                                    Dairy Free
+                                    <span class="visually-hidden">Dairy Free</span></p>
+                                
+                         
+                                
+                        </div>
+                       
+                        <h3> Mom's pan fried Dumplings</h3>
+                    </div>
+                    <div class="col-sm-4 item ">
+                        <div class="icon">
+                            <img src="../pics/dish.png"/>
+                        </div>
+                        <h3> Homemade Pizza</h3>
+    
+                    </div>
+                </div>
+          
+                
             </div>
         </div>
-        
+
     </body>
 
     <script src="script.js"></script>
