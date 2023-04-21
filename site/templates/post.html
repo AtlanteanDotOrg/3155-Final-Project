@@ -15,16 +15,16 @@
         <nav class="glass">
             <ul class="nav">
                 <li class="nav-item">
-                  <a class="nav-link" href="index.html">Home</a>
+                  <a class="nav-link" href="{{ url_for('home') }}">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="explore.html">Explore</a>
+                  <a class="nav-link" href="{{ url_for('explore_recipes') }}">Explore</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{{ url_for('add_recipe') }}">Post</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link"  href="about.html">About</a>
+                  <a class="nav-link"  href="{{ url_for('about') }}">About</a>
                 </li>
                 <li class="justify-content-end">
                     <form class="d-flex" role="search" id="search">
@@ -50,20 +50,20 @@
     <section class="form solidGlass row">
         <form method="POST" action="{{ request.path }}" id="post">
             <div class="row">
-                <label for="Recipe_Name" class="col">Recipe Name</label><br>
-                <input type="text" class="col" name="Recipe_Name" maxlength="45" placeholder="Name"/><br>
+                <label for="RecipeName" class="col">Recipe Name</label><br>
+                <input id="RecipeName" type="text" class="col" name="Recipe_Name" maxlength="45" placeholder="Name"/><br>
             </div>
             <div class="row">
-                <label for="Recipe_Description" class="col">Recipe Description</label><br>
-                <input type="textarea" class="col" name="Recipe_Description" maxlength="500" placeholder="Description"/><br>
+                <label for="RecipeDescription" class="col">Recipe Description</label><br>
+                <input id="RecipeDescription" type="textarea" class="col" name="Recipe_Description" maxlength="500" placeholder="Description"/><br>
             </div>
             <div class="row">
                 <label for="IsVegan" class="col">Vegan</label><br>
-                <input type="checkbox" class="col" name="IsVegan?" placeholder="Vegan?"/><br>
+                <input id="IsVegan" type="checkbox" class="col" name="IsVegan?" placeholder="Vegan?"/><br>
             </div>
             <div class="row">
                 <label for="IsGlutenFree" class="row">Gluten Free</label><br>
-                <input type="checkbox" class="row" name="IsGlutenFree" placeholder="Gluten Free?"/><br>
+                <input id="IsGlutenFree" type="checkbox" class="row" name="IsGlutenFree" placeholder="Gluten Free?"/><br>
             </div>
         
             <input type="submit" value="Post" id="submit">
