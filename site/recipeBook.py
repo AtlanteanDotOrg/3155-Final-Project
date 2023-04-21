@@ -17,19 +17,20 @@ app.config["SQLALCHEMY_DATABASE_URI"] = database_file
 db = SQLAlchemy(app)
 
 
-class Recipe():
-    __tablename__ = 'grandmas_recipe_book.recipes'
+
+class Recipe(db.Model):
+    __tablename__ = 'recipes'
     id = db.Column(db.Integer, primary_key=True)
     Recipe_Name = db.Column(db.String(45), nullable=False)
     Recipe_Description = db.Column(db.String(500), nullable=False)
-    IsVegan = db.Column(db.Boolean, nullable=True)
-    IsGlutenFree = db.Column(db.Boolean, nullable=True)
+    #IsVegan = db.Column(db.Boolean, nullable=True)
+   # IsGlutenFree = db.Column(db.Boolean, nullable=True)
 
-    def __init__(self, Recipe_Name, Recipe_Description, IsVegan, IsGlutenFree):
-        self.recipe_name = Recipe_Name
-        self.recipe_desc = Recipe_Description
-        self.isVegan = IsVegan
-        self.isGlutenFree = IsGlutenFree
+    def __init__(self, recipe_name, recipe_description):
+        self.Recipe_Name = recipe_name
+        self.Recipe_Description = recipe_description
+        #self.isVegan = IsVegan
+        #self.isGlutenFree = IsGlutenFree
 
 
 @app.route("/")
@@ -45,17 +46,29 @@ def about():
 @app.route('/addrecipe', methods=['GET', 'POST'])
 def add_recipe():
     if request.method == 'POST':
-        if not request.form['Recipe_Name'] or not request.form['Recipe_Description'] or not request.form['isVegan'] or not request.form['isGlutenFree']:
+        recipe_name = request.form['Recipe_Name']
+        recipe_description = request.form['Recipe_Description']
+        if not recipe_name or not recipe_description:
             flash('Please enter all the fields', 'error')
         else:
-            recipe = Recipe(request.form['Recipe_Name'], request.form['Recipe_Description'], request.form['isVegan'], request.form['isGlutenFree'])
-
+            recipe = Recipe(recipe_name=recipe_name, recipe_description=recipe_description)
             db.session.add(recipe)
             db.session.commit()
-
             flash('Record was successfully added')
             return redirect(url_for('home'))
     return render_template('post.html')
+    # if request.method == 'POST':
+    #     if not request.form['Recipe_Name'] or not request.form['Recipe_Description']: #(or not request.form['isVegan'] or not request.form['isGlutenFree']:
+    #         flash('Please enter all the fields', 'error')
+    #     else:
+    #         recipe = Recipe(request.form['Recipe_Name'], request.form['Recipe_Description']) #(request.form['isVegan'], request.form['isGlutenFree'])
+    #
+    #         db.session.add(recipe)
+    #         db.session.commit()
+    #
+    #         flash('Record was successfully added')
+    #         return redirect(url_for('home'))
+    # return render_template('post.html')
 
 
 @app.route('/explorerecipes')

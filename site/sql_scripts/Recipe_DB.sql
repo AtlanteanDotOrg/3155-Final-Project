@@ -1,5 +1,5 @@
 CREATE TABLE `grandmas_recipe_book`.`recipes` (
-  `id` INT NOT NULL,
+  `id` INT AUTO_INCREMENT,
   `Recipe_Name` VARCHAR(45) NOT NULL,
   `Recipe_Description` VARCHAR(500) NOT NULL,
   `IsVegan` TINYINT(1) NULL,
