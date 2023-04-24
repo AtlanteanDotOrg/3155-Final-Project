@@ -1,3 +1,9 @@
+stylesheet links should look like this:
+<link rel ="stylesheet" href="{{ url_for('static', filename='style.css') }}" 
+onerror="this.onerror=null; this.href='style.css'">
+
+do not delete duplicate css or js folders
+
 ONCLICK EVENT WILL NOT WORK WITHOUT ITEM CLASS
 also do not put class=item on something that isnt a link <3 
 the several important tags is to fight bootstrap
