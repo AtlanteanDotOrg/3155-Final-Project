@@ -1,7 +1,7 @@
 CREATE TABLE `grandmas_recipe_book`.`recipes` (
-  `id` INT AUTO_INCREMENT,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `Recipe_Name` VARCHAR(45) NOT NULL,
-  `Recipe_Description` VARCHAR(500) NOT NULL,
+  `Recipe_Description` VARCHAR(5000) NOT NULL,
   `IsVegan` TINYINT(1) NULL,
   `IsGlutenFree` TINYINT(1) NULL,
   PRIMARY KEY (`id`));
