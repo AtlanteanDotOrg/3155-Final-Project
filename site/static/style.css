@@ -395,3 +395,17 @@ input #submit{
     padding: 5%;
     margin-bottom: 30%;
 }
+.searchBox{
+    display: block;
+    background-color: white;
+    height: 10vh;
+    float:right;
+    left:80%;
+    right:0%;
+    position: absolute;
+    z-index: 101;
+    
+}
+/* .hidden{
+    display: none;
+} */
