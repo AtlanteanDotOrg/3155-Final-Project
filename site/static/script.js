@@ -4,6 +4,12 @@ const recipecont = document.querySelector(".popUpText")
 const x = document.getElementById("x");
 const badge = document.getElementsByClassName("badge");
 window.onload = function(){
+    const icon = document.querySelectorAll("#icon");
+    const rating = document.querySelectorAll(".rating");
+
+    for(var j = 0; j <= icon.length; j++){
+        genStars(rating[j],5);
+    }
     for (var i = 0 ; i < icons.length; i++){
         delete(icons[i]);
     }
@@ -18,9 +24,21 @@ for (var i = 0 ; i < icons.length; i++){
     x.addEventListener("click", del, icons[i]);
 }
 
+//generate default rating, which is 5 stars
+function genStars(rating,num){
+    //clear deafault star rating first
+    while(rating.firstChild){
+        rating.removeChild(rating.firstChild); 
+    }
+    for(var i = 0; i < num;i++){    
+        const star = document.createElement("img");
+        star.src="../static/pics/goldstar.png"
+        rating.appendChild(star); 
+    }
+    
+}
 function display(target){
     recipecont.innerText="";
-
     var target = target.target; 
     recipe.style.display="block";
     var h2 = document.createElement("h2");
@@ -29,8 +47,6 @@ function display(target){
     bdy.innerText = content;
     recipecont.appendChild(h2);
     recipecont.appendChild(bdy);
-
-    //TO DO: deal with to the silly badges 
 }
 function del(target){
     recipe.style.display = "none"; 

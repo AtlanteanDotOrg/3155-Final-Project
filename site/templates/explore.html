@@ -56,6 +56,9 @@
                     <div class="popUpCont row">
                         <img src="../static/pics/x.png" id="x">
                         <div class="col-4"">
+                            <div class="rating" id="popupRating">
+
+                            </div>
                             <img src="../static/pics/arrow.png"  class="popupImage">
                         </div>
                         <div class="popUpText col-8">
@@ -67,17 +70,21 @@
         
                     <div class="col-sm-4 item ">
                         <div class="icon">
-                            <p><img src="../static/pics/dish.png"/>
+                            <img src="../static/pics/dish.png"/ id="icon">
+                                <div class="rating solidGlass row" id="rating"></div>
                                 <span class="top-0 start-100 translate-middle badge rounded-pill bg-success">
                                     Dairy Free
-                                    <span class="visually-hidden">Dairy Free</span></p>
-                        </div>
-                       
+                                    <span class="visually-hidden">Dairy Free</span>
+                                    
+                            </div>
+                        
                         <h3> Mom's pan fried Dumplings</h3>
                     </div>
                     <div class="col-sm-4 item">
                         <div class="icon">
-                            <img src="../static/pics/dish.png"/>
+                            <img src="../static/pics/dish.png"/ id="icon">
+                            <div class="rating solidGlass row"></div>
+
                         </div>
                         <h3> Homemade Pizza</h3>
     
@@ -86,10 +93,11 @@
                 <div class="row justify-content-evenly">
                     <div class="col-sm-4 item ">
                         <div class="icon">
-                            <p><img src="../static/pics/dish.png"/>
+                            <img src="../static/pics/dish.png"/ id="icon">
+                                <div class="rating solidGlass row"></div>
                                 <span class="top-0 start-100 translate-middle badge rounded-pill bg-success">
                                     Dairy Free
-                                    <span class="visually-hidden">Dairy Free</span></p>
+                                    <span class="visually-hidden">Dairy Free</span>
                                 
                          
                                 
@@ -99,7 +107,9 @@
                     </div>
                     <div class="col-sm-4 item ">
                         <div class="icon">
-                            <img src="../static/pics/dish.png"/>
+                            <img src="../static/pics/dish.png"/ id="icon">
+                                <div class="rating solidGlass row"></div>
+
                         </div>
                         <h3> Homemade Pizza</h3>
     
@@ -111,11 +121,12 @@
         </div>
 
     </body>
+    <script src="../static/script.js"></script>
+
     <link rel ="stylesheet" href="{{ url_for('static', filename='style.css') }}" 
     onerror="this.onerror=null; this.href='../static/style.css'">
     <script src="{{ url_for('static', filename='script.js') }}" 
     onerror="this.onerror=null; this.src='../static/script.js'"></script>
-    <script src="script.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </html>
