@@ -12,14 +12,13 @@
 	</head>
 
 	<body>
-        <nav class="glass">
+          <nav class="glass">
             <ul class="nav">
                 <li class="nav-item">
                   <a class="nav-link" href="{{ url_for('home') }}">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{{url_for('explore_recipes')}}"
-                  onabort="this.href='explore.html'">Explore</a>
+                  <a class="nav-link" href="{{ url_for('explore_recipes') }}">Explore</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{{ url_for('add_recipe') }}">Post</a>
@@ -27,11 +26,8 @@
                 <li class="nav-item">
                   <a class="nav-link"  href="{{ url_for('about') }}">About</a>
                 </li>
-                <li class="justify-content-end">
-                    <form class="d-flex" role="search" id="search">
-                        <input class="form-control me-2 nobckg" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn" type="submit">Search</button>
-                    </form>
+                <li class="nav-item">
+                    <li><a class="nav-link" href="{{ url_for('search') }}">Search recipes</a></li>
                 </li>
             </ul>
               

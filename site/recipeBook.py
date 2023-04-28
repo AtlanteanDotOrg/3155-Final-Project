@@ -73,7 +73,17 @@ def add_recipe():
 
 @app.route('/explorerecipes')
 def explore_recipes():
-    return render_template('explore.html')
+    search_query = request.args.get('q', '')
+    recipes = Recipe.query.filter(Recipe.Recipe_Name.contains(search_query)).all()
+    return render_template('explore.html', recipes=recipes)
+
+@app.route('/search')
+def search():
+    query = request.args.get('q')
+    results = Recipe.query.filter(Recipe.Recipe_Name.ilike(f'%{query}%')).all()
+    return render_template('search.html', query=query, results=results)
+
+
 
 
 if __name__ == '__main__':

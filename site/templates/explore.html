@@ -12,6 +12,7 @@
 	</head>
 
 	<body>
+
         <nav class="glass">
             <ul class="nav">
                 <li class="nav-item">
@@ -26,16 +27,11 @@
                 <li class="nav-item">
                   <a class="nav-link"  href="{{ url_for('about') }}">About</a>
                 </li>
-                <li>
-                    
+                <li class="nav-item">
+                    <li><a class="nav-link" href="{{ url_for('search') }}">Search recipes</a></li>
                 </li>
-                <li class="justify-content-end row">
-                    <form class="d-flex" role="search" id="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn" type="submit">Search</button>
-                    </form>
-                  
-                </li>
+
+
             </ul>
               
         </nav>
