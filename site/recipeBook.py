@@ -23,14 +23,14 @@ class Recipe(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     Recipe_Name = db.Column(db.String(45), nullable=False)
     Recipe_Description = db.Column(db.String(500), nullable=False)
-    #IsVegan = db.Column(db.Boolean, nullable=True)
-   # IsGlutenFree = db.Column(db.Boolean, nullable=True)
+    IsVegan = db.Column(db.Boolean, nullable=True)
+    IsGlutenFree = db.Column(db.Boolean, nullable=True)
 
-    def __init__(self, recipe_name, recipe_description):
+    def __init__(self, recipe_name, recipe_description, is_vegan, is_gluten_free):
         self.Recipe_Name = recipe_name
         self.Recipe_Description = recipe_description
-        #self.isVegan = IsVegan
-        #self.isGlutenFree = IsGlutenFree
+        self.IsVegan = is_vegan
+        self.IsGlutenFree = is_gluten_free
 
 
 @app.route("/")
@@ -48,27 +48,17 @@ def add_recipe():
     if request.method == 'POST':
         recipe_name = request.form['Recipe_Name']
         recipe_description = request.form['Recipe_Description']
+        is_vegan = request.form.get('IsVegan') == 'on'
+        is_gluten_free = request.form.get('IsGlutenFree') == 'on'
         if not recipe_name or not recipe_description:
             flash('Please enter all the fields', 'error')
         else:
-            recipe = Recipe(recipe_name=recipe_name, recipe_description=recipe_description)
+            recipe = Recipe(recipe_name=recipe_name, recipe_description=recipe_description, is_vegan = is_vegan, is_gluten_free = is_gluten_free)
             db.session.add(recipe)
             db.session.commit()
             flash('Record was successfully added')
             return redirect(url_for('home'))
     return render_template('post.html')
-    # if request.method == 'POST':
-    #     if not request.form['Recipe_Name'] or not request.form['Recipe_Description']: #(or not request.form['isVegan'] or not request.form['isGlutenFree']:
-    #         flash('Please enter all the fields', 'error')
-    #     else:
-    #         recipe = Recipe(request.form['Recipe_Name'], request.form['Recipe_Description']) #(request.form['isVegan'], request.form['isGlutenFree'])
-    #
-    #         db.session.add(recipe)
-    #         db.session.commit()
-    #
-    #         flash('Record was successfully added')
-    #         return redirect(url_for('home'))
-    # return render_template('post.html')
 
 
 @app.route('/explorerecipes')
