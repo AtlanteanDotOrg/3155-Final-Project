@@ -47,20 +47,18 @@
     <section class="form solidGlass row">
         <form method="POST" action="{{ request.path }}" id="post">
             <div class="row">
-                <label for="RecipeName" class="col">Recipe Name</label><br>
-                <input id="RecipeName" type="text" class="col" name="Recipe_Name" maxlength="45" placeholder="Name"/>
+                <label for="RecipeName">Recipe Name</label><br>
+                <input id="RecipeName" type="text" name="Recipe_Name" maxlength="45" placeholder="Name"/>
             </div>
             <div class="row">
-                <label for="RecipeDescription" class="col">Recipe Description</label><br>
-                <input id="RecipeDescription" type="textarea" class="col" name="Recipe_Description" maxlength="500" placeholder="Description"/><br>
+                <label for="RecipeDescription">Recipe Description</label><br>
+                <input id="RecipeDescription" type="textarea" name="Recipe_Description" maxlength="500" placeholder="Description"/><br>
             </div>
-            <div class="row">
+            <div class="row checkbox">
                 <label for="IsVegan" class="col">Vegan</label><br>
                 <input id="IsVegan" type="checkbox" class="col" name="IsVegan?" placeholder="Vegan?"/><br>
-            </div>
-            <div class="row">
-                <label for="IsGlutenFree" class="row">Gluten Free</label><br>
-                <input id="IsGlutenFree" type="checkbox" class="row" name="IsGlutenFree" placeholder="Gluten Free?"/><br>
+                <label for="IsGlutenFree" class="col">Gluten Free</label><br>
+                <input id="IsGlutenFree" type="checkbox" class="col" name="IsGlutenFree" placeholder="Gluten Free?"/><br>
             </div>
         
             <input type="submit" value="Post" id="submit">
