@@ -1,6 +1,6 @@
 from flask import Flask, flash, redirect, url_for, render_template, session
 from flask import request
-
+from flask import send_from_directory
 from flask_sqlalchemy import SQLAlchemy
 
 DB_HOST = "localhost"
@@ -76,6 +76,7 @@ def explore_recipes():
     search_query = request.args.get('q', '')
     recipes = Recipe.query.filter(Recipe.Recipe_Name.contains(search_query)).all()
     return render_template('explore.html', recipes=recipes)
+    # return render_template('explore.html')
 
 @app.route('/search')
 def search():
@@ -83,7 +84,9 @@ def search():
     results = Recipe.query.filter(Recipe.Recipe_Name.ilike(f'%{query}%')).all()
     return render_template('search.html', query=query, results=results)
 
-
+@app.route("/get_json")
+def get_json():
+    return  send_from_directory('static','filler.json'); 
 
 
 if __name__ == '__main__':

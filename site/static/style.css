@@ -291,7 +291,22 @@ input{
     margin: 1vh 5vw;
     border-radius: 2%;
 }
+.popUpCont::-webkit-scrollbar {
+    width:20px;
+}
+.popUpCont::-webkit-scrollbar-track {
+    border-radius: 5%;
 
+}
+.popUpCont::-webkit-scrollbar-button{
+    height:100px !important;
+    border-radius: 5%;
+    
+}
+.popUpCont::-webkit-scrollbar-thumb {
+    background:black;
+    border-radius: 10px;
+}
 .rating{
     display: none;
     font-size: 0px;
@@ -313,7 +328,22 @@ input{
     padding: 0px;
     margin:auto;
     width:20%;
-    
+}
+.userRating{
+    white-space: nowrap;
+    display: flexbox;
+    justify-content: left;
+    align-items: center;
+    text-align: left;
+}
+.stars{
+    display: inline;
+    font-size: 0px;
+    padding: 0px;
+    margin:auto;
+    width:10%;
+    text-align: left;
+    margin-left:-50%;
 }
 .item:hover .rating{
     display: block !important;
