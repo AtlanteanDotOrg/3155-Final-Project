@@ -1,13 +1,17 @@
 let recipes =[];
-window.addEventListener("DOMContentLoaded", fetchFillerData);
-async function fetchFillerData(){
+
+fetchFillerData()
+function fetchFillerData(){
     try{
-        const response =  fetch('/get_json')
+       const response =  fetch('/get_json',{
+            method:"POST",
+            "headers": {"Content-Type": "application/json"},
+
+        })
         if(!response.ok){
             throw Error(`Error ${response.url} $${response.statusText}`)
         }
-        recipes = await response.json;
-        // recipes =  fetch('/get_json');
+        recipes =  fetch('/get_json');
     }catch(e){
         console.log(e.message); 
     }
