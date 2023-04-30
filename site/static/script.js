@@ -6,17 +6,7 @@ const badge = document.getElementsByClassName("badge");
 var title; 
 var content; 
 function loadCont(){
-    const icon = document.querySelectorAll("#icon");
-    const rating = document.querySelectorAll(".rating");
-   
-    for(var j = 0; j < icon.length ; j++){
-        var stars = icon[j].getAttribute("stars");
-        if(!icon[j].hasAttribute("stars")){
-            stars=5;
-        }
-        genStars(rating[j],stars);
-    }
- 
+    fetchFillerData()
     genPopUp(); 
     //clear content before re-generating pop-up
     for (var i = 0 ; i < icons.length; i++){
@@ -28,6 +18,7 @@ function genPopUp(){
     const whiteStars = document.querySelector(".stars").childNodes;
     for (var i = 0 ; i < icons.length; i++){
         x.addEventListener("click", del, icons[i]);
+        
     }
     for(var i = 0; i < whiteStars.length;i++){
         whiteStars[i].addEventListener("mouseover", function(e){
@@ -41,13 +32,25 @@ function hover(e){
     var newRating = target.getAttribute("stars");
     var cont = target.parentElement; 
     var images = cont.querySelectorAll("img");
-    for(var i = 0; i < newRating;i++){
-        images[i].src="../static/pics/goldstar.png";
-        images[i].addEventListener("click",updateStars)
+    if(target.src=="../static/pics/whitestar.png"){
+        for(var i = 0; i < newRating;i++){
+            images[i].src="../static/pics/goldstar.png";
+            images[i].addEventListener("click",updateStars)
+        }
+        for(var j = newRating ; j < images.length;j++){
+            images[j].src="../static/pics/whitestar.png";
+        }
     }
-    for(var j = newRating ; j < images.length;j++){
-        images[j].src="../static/pics/whitestar.png";
+    else{
+        for(var i = newRating; i < 5;i++){
+            images[i].src="../static/pics/whitestar.png";
+        }
+        for(var i = 0; i < newRating ;i++){
+            images[i].src="../static/pics/goldstar.png";
+        }
+        
     }
+    
     
 }
 function updateStars(e){
@@ -65,7 +68,11 @@ function genStars(rating,num){
     for(var i = 0; i < num;i++){    
         const star = document.createElement("img");
         star.src="../static/pics/goldstar.png"
+        star.setAttribute("stars", i+1)
         rating.appendChild(star); 
+        star.addEventListener("mouseover", function(e){
+            var result = hover(e); 
+        });
     }
     
 }

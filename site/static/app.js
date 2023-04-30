@@ -1,7 +1,7 @@
 
 let recipes =[];
  recipeCont = document.getElementById("recipes");
-fetchFillerData()
+
 function fetchFillerData(){
     fetch("/get_json")
     .then(response => {
@@ -35,47 +35,75 @@ function createItemCol(item){
         const div = document.createElement("div");
         div.classList.add("col-sm-4","item");
         const icon = document.createElement("div");
+        const tagCont = document.createElement("div");
+        tagCont.classList.add("tags","row");
         const id = item.id;
         div.setAttribute("id",id)
-
         icon.classList.add("icon");
         div.appendChild(icon); 
         const img = document.createElement("img");
-        img.src="../static/pics/dish.png";
         img.id="icon";
+        img.src="../static/pics/dish.png";
         const stars = item.stars;
         img.setAttribute("stars",stars)
         icon.appendChild(img);
         const starCont = document.createElement("div");
-        starCont.classList.add("rating","solidGlass","row");
+        starCont.classList.add("rating","row");
         starCont.id="rating";
         icon.appendChild(starCont); 
         genStars(starCont,stars);
         const h3 = document.createElement("h3");
+        const tagTitle = document.createElement("h4");
+        tagTitle.innerHTML="Tags: ";
+        tagTitle.classList.add("col");
+        tagCont.appendChild(tagTitle);
         h3.textContent=item.title;
         div.appendChild(h3); 
+        div.appendChild(tagCont);
+
         title = item.title;
         content = item.Content; 
+        const tag = document.createElement("p");
+        const typeTag = document.createElement("p");
+        const type = item.type;
+        tag.classList.add("tag","col");
+        if(item.Vegan=="True"){
+            tag.innerHTML="Vegan";
+            tagCont.appendChild(tag);
+        }
+        if(item.GF=="True"){   
+            tag.innerHTML="Gluten Free";
+            tagCont.appendChild(tag);         
+        }
+        typeTag.innerHTML= type;
+        typeTag.classList.add("tag");
+        tagCont.appendChild(typeTag);
         return div; 
     }
-    }
+        
+}
+        
     
-    // const span = document.createElement("span");
-    //     span.classList.add("top-0","start-100","translate-middle", "badge","rounded-pill","bg-success")
-    // if(item.Vegan="True"){
-    //     span.textContent="Vegan";
-    //     img.appendChild(span);
-    // }
-    // if(item.GF="True"){
-    //     span.textContent="Gluten Free";
-    //     img.appendChild(span);
-    // }
+    
     
   
  function configure(){
-    const items = document.getElementsByClassName("item");
-    for(var i = 0; i < items.length; i++){
-        items[i].addEventListener("click",display);
+    const btns = document.querySelectorAll("button");
+    for(var i = 0; i < btns.length; i++){
+        btns[i].onclick = function(){
+            console.log("test");
+            console.log(btns[i]);
+
+        }
+        // btns[i].addEventListener("click", function(e){
+        //     console.log(e.target);
+        //     let id = btns[i].getAttribute("id");
+        //     let title = recipes[id].title;
+        //     let content = recipes[id].Content;
+        //     updateContent(title,content);
+        //     display(e);
+
+        // });
     }
     
 }
