@@ -3,11 +3,8 @@ const recipe = document.getElementById("popup");
 const recipecont = document.querySelector(".popUpText")
 const x = document.getElementById("x");
 const badge = document.getElementsByClassName("badge");
-  //sample recipe is written directly in here
-//for simplicity 
-//change these
-var title = "Mom's Pan Fried Dumplings";
-var content = "Add your dumplings to your pan in a circular shape\n" + "Add oil to your pan\n" +"Fry them";
+var title; 
+var content; 
 function loadCont(){
     const icon = document.querySelectorAll("#icon");
     const rating = document.querySelectorAll(".rating");
@@ -30,7 +27,6 @@ function loadCont(){
 function genPopUp(){
     const whiteStars = document.querySelector(".stars").childNodes;
     for (var i = 0 ; i < icons.length; i++){
-        icons[i].addEventListener("click", display, icons[i])
         x.addEventListener("click", del, icons[i]);
     }
     for(var i = 0; i < whiteStars.length;i++){
@@ -73,33 +69,24 @@ function genStars(rating,num){
     }
     
 }
-function display(target){
+function display(e){
+    console.log("test"); 
     recipecont.innerText="";
-    var target = target.target; 
     recipe.style.display="block";
     var h2 = document.createElement("h2");
     var bdy = document.createElement("p");
+    var id = target.getAttribute("id");
+    console.log(e);
     h2.innerText = title; 
     bdy.innerText = content;
     recipecont.appendChild(h2);
     recipecont.appendChild(bdy);
 }
+function updateContent(title,content){
+    title  = title;
+    content = content; 
+}
 function del(target){
     recipe.style.display = "none"; 
 
 }
-function addDairyFree(){
-    //TO DO: create function that adds a dairy free flag
-    //so we don't have to fight boostrap
-}
-
-function addGlutenFree(){
-    //TO DO: create function that adds a gluten free flag
-    //so we don't have to fight boostrap
-}
-
-function addGlutenDairyFree(){
-    //TO DO: create function that adds a dairy and gluten free flag
-    //so we don't have to fight boostrap
-}
-
