@@ -5,24 +5,11 @@ const badge = document.getElementsByClassName("badge");
 
 function loadCont(){
     fetchFillerData()
-    genPopUp(); 
-    //clear content before re-generating pop-up
-    for (var i = 0 ; i < icons.length; i++){
-        delete(icons[i]);
-    }
+    
    
 }
-function genPopUp(){
-    const whiteStars = document.querySelector(".stars").childNodes;
-    
-    for(var i = 0; i < whiteStars.length;i++){
-        whiteStars[i].addEventListener("mouseover", function(e){
-            var result = hover(e); 
-            console.log(result); 
-        });
-    }
-}
-function hover(e){
+
+function hover(e,id){
     var target = e.target;
     var newRating = target.getAttribute("stars");
     var cont = target.parentElement; 
@@ -30,7 +17,6 @@ function hover(e){
     if(target.src=="../static/pics/whitestar.png"){
         for(var i = 0; i < newRating;i++){
             images[i].src="../static/pics/goldstar.png";
-            images[i].addEventListener("click",updateStars)
         }
         for(var j = newRating ; j < images.length;j++){
             images[j].src="../static/pics/whitestar.png";
@@ -45,13 +31,13 @@ function hover(e){
         }
         
     }
+    target.addEventListener("click", function(e){
+        updateStars(e.target,id)
+    })
     
     
 }
-function updateStars(e){
-    var target = e.target; 
-    return target.getAttribute("stars");
-}
+
 
 
 //generate default rating, which is 5 stars
@@ -72,7 +58,6 @@ function genStars(rating,num){
     
 }
 function display(title,content,target){
-    console.log("test"); 
     recipecont.innerText="";
     recipe.style.display="block";
     var h2 = document.createElement("h2");
@@ -83,6 +68,13 @@ function display(title,content,target){
     recipecont.appendChild(bdy);
     const x = document.getElementById("x");
     x.addEventListener("click", del, target);
+    const whiteStars = document.querySelector(".stars").childNodes;
+    
+    for(var i = 0; i < whiteStars.length;i++){
+        whiteStars[i].addEventListener("mouseover", function(e){
+            hover(e,target.getAttribute("id"))
+        });
+    }
 }
 
 function del(target){
