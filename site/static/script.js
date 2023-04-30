@@ -1,10 +1,8 @@
 const icons = document.getElementsByClassName("item");
 const recipe = document.getElementById("popup");
 const recipecont = document.querySelector(".popUpText")
-const x = document.getElementById("x");
 const badge = document.getElementsByClassName("badge");
-var title; 
-var content; 
+
 function loadCont(){
     fetchFillerData()
     genPopUp(); 
@@ -16,10 +14,7 @@ function loadCont(){
 }
 function genPopUp(){
     const whiteStars = document.querySelector(".stars").childNodes;
-    for (var i = 0 ; i < icons.length; i++){
-        x.addEventListener("click", del, icons[i]);
-        
-    }
+    
     for(var i = 0; i < whiteStars.length;i++){
         whiteStars[i].addEventListener("mouseover", function(e){
             var result = hover(e); 
@@ -76,23 +71,20 @@ function genStars(rating,num){
     }
     
 }
-function display(e){
+function display(title,content,target){
     console.log("test"); 
     recipecont.innerText="";
     recipe.style.display="block";
     var h2 = document.createElement("h2");
     var bdy = document.createElement("p");
-    var id = target.getAttribute("id");
-    console.log(e);
     h2.innerText = title; 
     bdy.innerText = content;
     recipecont.appendChild(h2);
     recipecont.appendChild(bdy);
+    const x = document.getElementById("x");
+    x.addEventListener("click", del, target);
 }
-function updateContent(title,content){
-    title  = title;
-    content = content; 
-}
+
 function del(target){
     recipe.style.display = "none"; 
 

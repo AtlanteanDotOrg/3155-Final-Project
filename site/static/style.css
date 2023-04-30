@@ -189,17 +189,16 @@ input{
     position: absolute;
 }
 #popup{
+    position: absolute;
     display:none;
     margin: auto;
     justify-content: center;
     text-align: center;
     top:-1%;
-    width: 75vw;
-    height:75vh;
-    background-color: var(--background);
-    border:5px solid black; 
+    width: 90%;
+    height:100vh;
     border-radius: 2%;
-    left:-1%;
+    z-index: 105;
 
 
 }
@@ -207,18 +206,19 @@ input{
 .popUpCont{
     text-align: center !important;
     background-color: white;
-    height: 70vh;
-    width: 70vw;
+    height: 90vh;
+    width: 90%;
     z-index: 101;
     border-radius: 2%;
     overflow-y: scroll;
+    overflow-x: hidden;
     left: 0; 
     right: 0; 
-    margin-top: 1%;
-    margin-left: auto; 
-    margin-right: auto;
+    top:5%;
+    margin:auto;
     justify-content: space-between;
     align-items: center;
+    border:5px solid black;
 
 }
 .popUpCont p, .popUpCont h2{
@@ -257,8 +257,8 @@ input{
     float:left;
     position: sticky;
     padding:0%;
-    top:0%;
-    left:99%;
+    top:1%;
+    left:80%;
     margin-right: 0%;
 }
 .exploreBody{
