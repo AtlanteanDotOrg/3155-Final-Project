@@ -17,7 +17,6 @@ app.config["SQLALCHEMY_DATABASE_URI"] = database_file
 db = SQLAlchemy(app)
 
 
-
 class Recipe(db.Model):
     __tablename__ = 'recipes'
     id = db.Column(db.Integer, primary_key=True)
@@ -68,15 +67,49 @@ def explore_recipes():
     # return render_template('explore.html', recipes=recipes)
     return render_template('explore.html')
 
+
 @app.route('/search')
 def search():
     query = request.args.get('q')
     results = Recipe.query.filter(Recipe.Recipe_Name.ilike(f'%{query}%')).all()
     return render_template('search.html', query=query, results=results)
 
+
+@app.route('/updaterecipe/<int:id>/', methods=['GET', 'POST'])
+def update_recipe(id):
+    if request.method == 'POST':
+        if not request.form['item'] or not request.form['amount']:
+            flash('Please enter all the fields', 'error')
+        else:
+            recipe = Recipe.query.filter_by(id=id).first()
+            recipe.recipe_name = request.form['Recipe_Name']
+            recipe.recipe_description = request.form['Recipe_Description']
+            recipe.is_vegan = request.form.get('IsVegan') == 'on'
+            recipe.is_gluten_free = request.form.get('IsGlutenFree') == 'on'
+            db.session.commit()
+
+            flash('Record was successfully updated')
+            return redirect(url_for('home'))
+    data = Recipe.query.filter_by(id=id).first()
+    return render_template("update.html", data=data)
+
+
+@app.route('/deleterecipe/<int:id>/', methods=['GET', 'POST'])
+def delete_recipe(id):
+    if request.method == 'POST':
+        recipe = Recipe.query.filter_by(id=id).first()
+        db.session.delete(recipe)
+        db.session.commit()
+
+        flash('Record was successfully deleted')
+        return redirect(url_for('resource'))
+    data = Recipe.query.filter_by(id=id).first()
+    return render_template("delete.html", data=data)
+
+
 @app.route("/get_json",methods=['GET', 'POST'])
 def get_json():
-    return  send_from_directory('static','filler.json'); 
+    return  send_from_directory('static','filler.json');
 
 
 if __name__ == '__main__':
