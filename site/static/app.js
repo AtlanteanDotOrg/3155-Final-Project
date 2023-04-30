@@ -88,23 +88,19 @@ function createItemCol(item){
     
   
  function configure(){
-    const btns = document.querySelectorAll("button");
-    for(var i = 0; i < btns.length; i++){
-        btns[i].onclick = function(){
-            console.log("test");
-            console.log(btns[i]);
-
-        }
-        // btns[i].addEventListener("click", function(e){
-        //     console.log(e.target);
-        //     let id = btns[i].getAttribute("id");
-        //     let title = recipes[id].title;
-        //     let content = recipes[id].Content;
-        //     updateContent(title,content);
-        //     display(e);
-
-        // });
+    const items = document.querySelectorAll(".item");
+    for(var i = 0; i < items.length; i++){
+        
+        items[i].addEventListener("click", send,items[i]);
     }
+    
+}
+function send(target){
+    target = target.target;
+    var el = target.closest(".item")
+    var id = el.getAttribute("id");
+    var rec = recipes[id];
+    display(rec.title,rec.Content,el);
     
 }
  
