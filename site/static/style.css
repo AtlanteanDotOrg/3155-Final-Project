@@ -24,6 +24,7 @@ html,body{
 body{
    background-color: var(--background);
    background-image: var(--gradient);
+   background-repeat: no-repeat;
 }
 h1{
     font-family: 'Luckiest Guy', sans-serif;
@@ -59,6 +60,44 @@ nav a,form,button{
     margin:auto; 
     padding: 5%;
 }
+.form input[type='textarea']{
+    margin: 1vh 1% 3vh; 
+    height: 25vh;
+    width: 55vw;
+
+}
+.form input[type='text']{
+    margin: auto;
+    height: 5vh;
+    width: 30vw;
+    text-align: left;
+    margin-left: 1%;
+}
+.form input[type='checkbox']{
+    margin: auto;
+    height: 2vh;
+}
+.checkbox{
+    width:50%;
+    margin:3vh auto 3vh;
+}
+.checkbox label{
+    padding: 0%;
+    white-space: nowrap;
+    font-size: 1.5rem !important;
+    width: 50%;
+    margin-right: -5vw;
+}
+.checkbox input{
+    position: relative;
+    padding: 0%;
+}
+.form input[type='submit']{
+    margin:auto;
+    font-size: 2rem;
+    text-align: center;
+    
+}
 label{
     font-size: 2rem;
 }
@@ -68,9 +107,7 @@ input{
     width: 20vw;
     border:3px solid black; 
 }
-input #submit{
-    width:10vw !important;
-}
+
 .container{
     min-width: 90vw;
     width:95vw;
@@ -114,10 +151,9 @@ input #submit{
     -webkit-backdrop-filter: blur(20px);
 
 }
-.splash{
-    background-image: url(../pics/splash.png);
-    background-size: contain; 
-    background-repeat: no-repeat;
+.yellow{
+    background-color:var(--yellow);
+    background-image: none;
 }
 .title{
     white-space:pre;
@@ -153,35 +189,36 @@ input #submit{
     position: absolute;
 }
 #popup{
+    position: absolute;
     display:none;
     margin: auto;
     justify-content: center;
     text-align: center;
     top:-1%;
-    width: 75vw;
-    height:75vh;
-    background-color: var(--background);
-    border:5px solid black; 
+    width: 90%;
+    height:100vh;
     border-radius: 2%;
-    left:-1%;
+    z-index: 105;
 
 
 }
+
 .popUpCont{
     text-align: center !important;
     background-color: white;
-    height: 70vh;
-    width: 70vw;
+    height: 90vh;
+    width: 90%;
     z-index: 101;
     border-radius: 2%;
     overflow-y: scroll;
+    overflow-x: hidden;
     left: 0; 
     right: 0; 
-    margin-top: 1%;
-    margin-left: auto; 
-    margin-right: auto;
+    top:5%;
+    margin:auto;
     justify-content: space-between;
     align-items: center;
+    border:5px solid black;
 
 }
 .popUpCont p, .popUpCont h2{
@@ -220,14 +257,31 @@ input #submit{
     float:left;
     position: sticky;
     padding:0%;
-    top:0%;
-    left:99%;
+    top:1%;
+    left:80%;
     margin-right: 0%;
 }
+.exploreBody{
+    width: 70%;
+    position: relative;
+    z-index: 100;
+    background-color:var(--background);
+    height:200vh;
+    border-radius: 5% ;
+    text-align: right;
+    margin:auto;
+    overflow-y:visible;
+    
+}
 .explore{
+    top:30vh;
+    position: absolute;
+    margin:auto;
     padding:2vw;
     width:70vw; 
-    margin:auto;
+    right:0%;
+    height: 200vh;
+   
 }
 #feature{
     gap:2vw;
@@ -252,33 +306,88 @@ input #submit{
 .item{
     position: relative;
     justify-content: center;
-    margin: 1vh 5vw;
+    margin: 2vh 5vw;
     border-radius: 2%;
+    background-color: white;
+    text-align: center;
+    padding-bottom: 15vh;
 }
+.popUpCont::-webkit-scrollbar, .scroll::-webkit-scrollbar{
+    width:20px;
+    padding-right: 10px;
+}
+.popUpCont::-webkit-scrollbar-track, .scroll::-webkit-scrollbar-track {
+    border-radius: 5%;
 
+}
+.popUpCont::-webkit-scrollbar-button, .scroll::-webkit-scrollbar-button{
+    height:100px !important;
+    border-radius: 5%;
+    
+}
+.popUpCont::-webkit-scrollbar-thumb, .scroll::-webkit-scrollbar-thumb {
+    background:black;
+    border-radius: 10px;
+}
+.tags{
+   
+    width:60%;
+    margin:auto;
+    position: relative;
+    height:3.5vh;
+
+}
+.tag{
+    white-space: nowrap;
+    margin:auto;
+    align-items: baseline;
+    left:0%;
+    background-color: var(--yellow);
+    color: black;
+    font-weight: bolder;
+    width:5vw;
+    border-radius: 5%;
+    gap:1%;
+}
 .rating{
-    display: none;
+    display: block;
     font-size: 0px;
     white-space:nowrap;
     margin:none;
     position: absolute;
     background-size:cover;
-    top:20%;
+    top:100%;
     width: 110%;
-    height: 15vh;
+    height: 40vh;
     padding:5%;
     justify-content: center;
     align-items: center;
 }
 .rating img{
     position: relative;
-    bottom:50%;
+    bottom:0%;
     font-size: 0px;
     padding: 0px;
     margin:auto;
-    width:20%;
-    
+    width:15%;
 }
+.userRating{
+    white-space: nowrap;
+    display: flexbox;
+    justify-content: left;
+    align-items: center;
+    text-align: left;
+}
+.stars{
+    display: inline;
+    font-size: 0px;
+    padding: 0px;
+    margin:auto;
+    width:10%;
+    text-align: left;
+    margin-left:-50%;
+}
+
 .item:hover .rating{
     display: block !important;
 }
@@ -289,9 +398,28 @@ input #submit{
     width: 100%;
     margin: none;
 }
-.filter{
-    width:20vw; 
-    padding:5vw;
+.chef{
+    position: absolute;
+    top:10%;
+    z-index: 101;
+    text-align: right;
+    height:150vh;
+    object-fit: contain;
+    box-sizing: border-box;
+    width:30vw;
+    height: 200vh;
+    left:-5%;
+    margin:auto 0vh auto;
+  
+}
+.chef img{
+    padding: 0%;
+    position: sticky;
+    top:0%;
+    left:0%;
+    right:50vw;
+    margin-left:1px;
+    width:100%;
 }
 #post{
     width:80vw; 
@@ -318,10 +446,11 @@ input #submit{
 }
 #recipe{
     height:40vh; 
-
 }
 
 .recipe{
+ 
+    top:0%;
     margin:auto; 
     padding:5%; 
     border-radius: 2%;
@@ -337,7 +466,28 @@ input #submit{
     overflow: hidden;
     padding-left: 5%;
  }
-
+.header{
+    text-align:right;
+    position: absolute;
+    height:20vh;
+    margin:auto 5% auto;
+    top:5%;
+    justify-content: space-between;
+    width:50vw;
+    left:10%;
+   
+}
+.header h1{
+    left:100%;
+    font-size: 4.5em;
+    white-space: nowrap;
+}
+.header img{
+    left:0%;
+    width: 75%;
+    margin:auto;
+    position: relative;
+}
 .sec{
     position: sticky;
     top:0%;

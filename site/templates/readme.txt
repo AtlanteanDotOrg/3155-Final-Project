@@ -14,3 +14,54 @@ https://listjs.com/docs/plugins/fuzzysearch/
 TO DO:
 search 
 tag system 
+
+explore recipes front end template:
+ <!-- <div class="row justify-content-evenly">
+        
+                        <div class="col-sm-4 item ">
+                            <div class="icon">
+                                <img src="../static/pics/dish.png"/ id="icon" stars="5">
+                                    <div class="rating solidGlass row" id="rating"></div>
+                                    <span class="top-0 start-100 translate-middle badge rounded-pill bg-success">
+                                        Dairy Free
+                                        <span class="visually-hidden">Dairy Free</span>
+                                        
+                                </div>
+                            
+                            <h3> Mom's pan fried Dumplings</h3>
+                        </div>
+                        <div class="col-sm-4 item">
+                            <div class="icon">
+                                <img src="../static/pics/dish.png"/ id="icon" stars="5">
+                                <div class="rating solidGlass row"></div>
+    
+                            </div>
+                            <h3> Homemade Pizza</h3>
+        
+                        </div>
+                    </div>
+                    <div class="row justify-content-evenly">
+                        <div class="col-sm-4 item ">
+                            <div class="icon">
+                                <img src="../static/pics/dish.png"/ id="icon"  stars="5">
+                                    <div class="rating solidGlass row" id="rating"></div>
+                                    <span class="top-0 start-100 translate-middle badge rounded-pill bg-success">
+                                        Dairy Free
+                                        </span>
+                                
+                                    
+                            </div>
+                           
+                            <h3> Mom's pan fried Dumplings</h3>
+                        </div>
+                        <div class="col-sm-4 item">
+                            <div class="icon">
+                                <img src="../static/pics/dish.png"/ id="icon" stars="5">
+                                <div class="rating solidGlass row" id="rating"></div>
+    
+                            </div>
+                            <h3> Homemade Pizza</h3>
+        
+                        </div>
+                    </div> -->
+              
