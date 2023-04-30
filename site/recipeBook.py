@@ -6,7 +6,7 @@ from flask_sqlalchemy import SQLAlchemy
 DB_HOST = "localhost"
 DB_NAME = "grandmas_recipe_book"
 DB_USERNAME = "root"
-DB_Password = "Jafar9290!"
+DB_Password = "*****"
 
 database_file = f"mysql+pymysql://{DB_USERNAME}:{DB_Password}@{DB_HOST}:3306/{DB_NAME}"
 
@@ -15,7 +15,6 @@ app.secret_key = "mysecret"
 app.config["SQLALCHEMY_DATABASE_URI"] = database_file
 
 db = SQLAlchemy(app)
-
 
 
 class Recipe(db.Model):
@@ -77,13 +76,12 @@ def explore_recipes():
     recipes = Recipe.query.filter(Recipe.Recipe_Name.contains(search_query)).all()
     return render_template('explore.html', recipes=recipes)
 
+
 @app.route('/search')
 def search():
     query = request.args.get('q')
     results = Recipe.query.filter(Recipe.Recipe_Name.ilike(f'%{query}%')).all()
     return render_template('search.html', query=query, results=results)
-
-
 
 
 if __name__ == '__main__':
