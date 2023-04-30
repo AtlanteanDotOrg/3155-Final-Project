@@ -95,7 +95,7 @@ def update_recipe(id):
 
 
 @app.route('/deleterecipe/<int:id>/', methods=['GET', 'POST'])
-def delete_resource(id):
+def delete_recipe(id):
     if request.method == 'POST':
         recipe = Recipe.query.filter_by(id=id).first()
         db.session.delete(recipe)
