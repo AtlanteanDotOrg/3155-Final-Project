@@ -283,26 +283,15 @@ input{
     height: 200vh;
    
 }
-#feature{
-    gap:2vw;
-    width:90vw; 
-    margin:auto;
 
-}
-#feature img,.explore img{
+.explore img{
     object-fit: contain;
     height: 25vh;
     width: 100%;
     margin:auto;
     text-align: center;
 }
-#feature h2{
-    text-align: left;
-}
-#feature h3{
-    margin-top: 1vh;
-    text-align: center;
-}
+
 .item{
     position: relative;
     justify-content: center;
