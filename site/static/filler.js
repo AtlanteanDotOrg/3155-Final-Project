@@ -20,14 +20,12 @@ function write(data){
         recipeCont.removeChild(recipeCont.lastElementChild);
     }
     for(var j = 0; j < data.length;j+=2){
-        console.log(data[j]);
         createItemRow(data[j],data[j+1]);
     }
     configure();
 
 }
 function createItemRow(item1, item2){
-    
         const cont = document.createElement("div");
         cont.classList.add("row","justify-content-evenly");
         recipeCont.appendChild(cont);
@@ -83,6 +81,7 @@ function createItemCol(item){
         typeTag.innerHTML= type;
         typeTag.classList.add("tag");
         tagCont.appendChild(typeTag);
+        console.log("Creating spot for " + item.title + ", id is " + item.id)
         return div; 
     }
         
