@@ -1,5 +1,4 @@
-{
-    "recipes":[
+[
         {
             "id": 1,
             "stars":5,
@@ -28,7 +27,7 @@
             "Vegan": "False",
             "GF":"False"
         },
-    
+        
         {
             "id": 4,
             "stars":5,
@@ -47,7 +46,10 @@
             "Vegan": "True",
             "GF":"False"
         }
-        
     
     ]
-}
+    
+
+
+
+    

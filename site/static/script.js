@@ -40,23 +40,7 @@ function hover(e,id){
 
 
 
-//generate default rating, which is 5 stars
-function genStars(rating,num){
-    //clear deafault star rating first
-    while(rating.firstChild){
-        rating.removeChild(rating.firstChild); 
-    }
-    for(var i = 0; i < num;i++){    
-        const star = document.createElement("img");
-        star.src="../static/pics/goldstar.png"
-        star.setAttribute("stars", i+1)
-        rating.appendChild(star); 
-        star.addEventListener("mouseover", function(e){
-            var result = hover(e); 
-        });
-    }
-    
-}
+
 function display(title,content,target){
     recipecont.innerText="";
     recipe.style.display="block";

@@ -310,7 +310,7 @@ input{
     border-radius: 2%;
     background-color: white;
     text-align: center;
-    padding-bottom: 15vh;
+    padding-bottom: 10vh;
 }
 .popUpCont::-webkit-scrollbar, .scroll::-webkit-scrollbar{
     width:20px;

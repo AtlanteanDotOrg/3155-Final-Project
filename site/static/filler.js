@@ -1,4 +1,4 @@
-
+//JS file to handle filler data
 let recipes =[];
 recipeCont = document.getElementById("recipes");
 
@@ -15,9 +15,12 @@ function load(data){
 }
 
 function write(data){
+    //clear previous data on reload
+    while(recipeCont.lastElementChild){
+        recipeCont.removeChild(recipeCont.lastElementChild);
+    }
     for(var j = 0; j < data.length;j+=2){
         console.log(data[j]);
-
         createItemRow(data[j],data[j+1]);
     }
     configure();
@@ -54,7 +57,6 @@ function createItemCol(item){
         starCont.classList.add("rating","row");
         starCont.id="rating";
         icon.appendChild(starCont); 
-        genStars(starCont,stars);
         const h3 = document.createElement("h3");
         const tagTitle = document.createElement("h4");
         tagTitle.innerHTML="Tags: ";
@@ -104,18 +106,28 @@ function send(target){
 }
 
 async function updateStars(el,id){
-   var url = `/filler`
-    // var userRating = el.getAttribute("stars");
-    // console.log(recipes[id]);
-    // recipes[id].stars = userRating;
-    // const response = await(fetch(url
-    // //     ,{
-    // //     method:'PUT',
-    // //     headers:{"Content-Type": "application/json"},
-    // //     body:JSON.stringify(userRating)
-    // // }
+    var url = `/filler/${id}`
+    var userRating = el.getAttribute("stars");
+    recipes[id].stars = userRating;
+    const response = await fetch(url,{
+        method:'POST',
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(recipes[id])
         
-    // ))
-    // console.log(response);
-}
+    })
+    await response.json;
+}   
+async function remove(id){
+    var url = `/filler/${id}`
+    var userRating = el.getAttribute("stars");
+    recipes[id].stars = userRating;
+    const response = await fetch(url,{
+        method:'DELETE',   
+    })
+    await response.json;
+    write(recipes);
+}  
+
  
