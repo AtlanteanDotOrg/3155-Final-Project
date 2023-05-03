@@ -62,6 +62,37 @@ def add_recipe():
             return redirect(url_for('home'))
     return render_template('post.html')
 
+@app.route('/updaterecipe/<int:id>/', methods=['GET', 'POST'])
+def update_recipe(id):
+    if request.method == 'POST':
+        if not request.form['Recipe_Name'] or not request.form['Recipe_Description']:
+            flash('Enter all fields', 'error')
+
+        else:
+            recipe = Recipe.query.filter_by(id=id).first()
+            recipe.Recipe_Name = request.form['Recipe_Name']
+            recipe.Recipe_Description = request.form['Recipe_Description']
+            recipe.IsVegan = request.form.get('IsVegan') == 'on'
+            recipe.IsGlutenFree = request.form.get('IsGlutenFree') == 'on'
+            db.session.commit()
+
+            flash('Update successful')
+            return redirect(url_for('home'))
+    data = Recipe.query.filter_by(id=id).first()
+    return render_template("update.html", data=data)
+
+@app.route('/deleterecipe/<int:id>/', methods=['GET', 'POST'])
+def delete_recipe(id):
+    if request.method == 'POST':
+        recipe = Recipe.query.filter_by(id=id).first()
+        db.session.delete(recipe)
+        db.session.commit()
+
+        flash('Delete successful')
+        return redirect(url_for('home'))
+    
+    data = Recipe.query.filter_by(id=id).first()
+    return render_template('delete.html', data=data)
 
 @app.route('/explorerecipes')
 def explore_recipes():
