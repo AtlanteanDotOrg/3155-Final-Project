@@ -11,5 +11,5 @@ CREATE TABLE `grandmas_recipe_book`.`tags` (
   `Tag_Id` INT NOT NULL AUTO_INCREMENT,
   `Tag` VARCHAR(45) NULL,
   PRIMARY KEY (`Tag_Id`),
-  FOREIGN KEY (Recipe_Id) REFERENCES recipes(id)
+  FOREIGN KEY (Recipe_Id) REFERENCES recipes(id) ON DELETE CASCADE
     );
